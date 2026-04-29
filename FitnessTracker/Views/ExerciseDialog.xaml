@@ -1,89 +1,213 @@
 <Window x:Class="FitnessTracker.Views.ExerciseDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Übung hinzufügen" Height="600" Width="500"
+        Title="Übung hinzufügen" Height="700" Width="550"
         WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
-        Background="#F5F5F5">
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel Margin="20">
-            <!-- Exercise Selection -->
-            <TextBlock Text="Übung wählen:" FontWeight="Bold" FontSize="12" Margin="0,0,0,5"/>
-            <ComboBox x:Name="ExerciseCombo" 
-                      Padding="8" 
-                      Margin="0,0,0,15"
-                      DisplayMemberPath="Name"/>
+        Background="#0F1419"
+        Foreground="#FFFFFF">
+    
+    <Window.Resources>
+        <Style x:Key="DialogButton" TargetType="Button">
+            <Setter Property="Background" Value="#1976D2"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="15,10"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="6" 
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#1565C0"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#0D47A1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-            <!-- Alternative: Custom Exercise -->
-            <TextBlock Text="oder eigene Übung:" FontWeight="Bold" FontSize="12" Margin="0,0,0,5"/>
-            <TextBox x:Name="CustomExerciseText" 
-                     Padding="8" 
-                     Margin="0,0,0,10"/>
+        <Style x:Key="SuccessButton" TargetType="Button" BasedOn="{StaticResource DialogButton}">
+            <Setter Property="Background" Value="#00BFA5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="6" 
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#00897B"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#004D40"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-            <!-- Muscle Group -->
-            <TextBlock Text="Muskelgruppe:" FontWeight="Bold" FontSize="12" Margin="0,0,0,5"/>
-            <ComboBox x:Name="MuscleCombo" 
-                      Padding="8" 
-                      Margin="0,0,0,15"/>
+        <Style x:Key="DialogTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="#1E1E2E"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="Padding" Value="12"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Setter Property="BorderBrush" Value="#1976D2"/>
+            <Setter Property="CaretBrush" Value="#00BFA5"/>
+        </Style>
 
-            <!-- Sets Section -->
-            <TextBlock Text="Sets:" FontWeight="Bold" FontSize="12" Margin="0,0,0,10"/>
-            <Border Background="#FFFFFF" Padding="10" CornerRadius="5" Margin="0,0,0,10">
+        <Style x:Key="DialogComboBox" TargetType="ComboBox">
+            <Setter Property="Background" Value="#1E1E2E"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="Padding" Value="12"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Setter Property="BorderBrush" Value="#1976D2"/>
+        </Style>
+    </Window.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Background="#0F1419">
+        <StackPanel Margin="25">
+            <!-- Title -->
+            <TextBlock Text="🏋️ ÜBUNG HINZUFÜGEN" FontSize="18" FontWeight="Bold" 
+                       Foreground="#FFFFFF" Margin="0,0,0,25"/>
+
+            <!-- Section 1: Exercise Selection -->
+            <Border Background="#1E1E2E" Padding="18" CornerRadius="8" Margin="0,0,0,20"
+                    BorderThickness="1" BorderBrush="#2C2C3E">
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <TextBlock Text="Set" FontWeight="Bold" Width="40"/>
-                        <TextBlock Text="Wiederholungen" FontWeight="Bold" Width="120" Margin="10,0,0,0"/>
-                        <TextBlock Text="Gewicht (kg)" FontWeight="Bold" Width="100" Margin="10,0,0,0"/>
-                        <TextBlock Text="" Width="40"/>
-                    </StackPanel>
+                    <TextBlock Text="📋 Übung auswählen" FontSize="12" FontWeight="Bold" 
+                               Foreground="#00BFA5" Margin="0,0,0,12"/>
+                    
+                    <TextBlock Text="Aus Katalog:" FontSize="11" FontWeight="SemiBold" 
+                               Foreground="#B0BEC5" Margin="0,0,0,8"/>
+                    <ComboBox x:Name="ExerciseCombo" 
+                              Style="{StaticResource DialogComboBox}"
+                              Margin="0,0,0,15"
+                              DisplayMemberPath="Name"
+                              Padding="12"/>
+
+                    <TextBlock Text="oder eingeben:" FontSize="11" FontWeight="SemiBold" 
+                               Foreground="#B0BEC5" Margin="0,0,0,8"/>
+                    <TextBox x:Name="CustomExerciseText" 
+                             Style="{StaticResource DialogTextBox}"
+                             Margin="0,0,0,0"
+                             Padding="12"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Section 2: Muscle Group -->
+            <Border Background="#1E1E2E" Padding="18" CornerRadius="8" Margin="0,0,0,20"
+                    BorderThickness="1" BorderBrush="#2C2C3E">
+                <StackPanel>
+                    <TextBlock Text="💪 Muskelgruppe" FontSize="12" FontWeight="Bold" 
+                               Foreground="#00BFA5" Margin="0,0,0,10"/>
+                    
+                    <ComboBox x:Name="MuscleCombo" 
+                              Style="{StaticResource DialogComboBox}"
+                              Padding="12"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Section 3: Sets -->
+            <Border Background="#1E1E2E" Padding="18" CornerRadius="8" Margin="0,0,0,20"
+                    BorderThickness="1" BorderBrush="#2C2C3E">
+                <StackPanel>
+                    <TextBlock Text="⚙️ SETS" FontSize="12" FontWeight="Bold" 
+                               Foreground="#00BFA5" Margin="0,0,0,12"/>
+
+                    <!-- Sets Header -->
+                    <Border Background="#0F1419" Padding="10,8" CornerRadius="4" Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Set" FontWeight="Bold" Width="30" 
+                                       Foreground="#90A4AE" FontSize="10"/>
+                            <TextBlock Text="Wiederh." FontWeight="Bold" Width="70" 
+                                       Foreground="#90A4AE" FontSize="10" Margin="10,0,0,0"/>
+                            <TextBlock Text="Gewicht (kg)" FontWeight="Bold" Width="80" 
+                                       Foreground="#90A4AE" FontSize="10" Margin="10,0,0,0"/>
+                            <TextBlock Text="" Width="40" Foreground="#90A4AE" FontSize="10"/>
+                        </StackPanel>
+                    </Border>
 
                     <!-- Sets ListBox -->
                     <ListBox x:Name="SetsList" 
-                             Background="#F9F9F9" 
-                             Margin="0,0,0,10" 
-                             MinHeight="150" 
-                             MaxHeight="250">
+                             Background="#0F1419" 
+                             Margin="0,0,0,12" 
+                             MinHeight="120" 
+                             MaxHeight="220"
+                             BorderThickness="0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Margin="5">
-                                    <TextBlock Text="{Binding SetNumber}" Width="40" VerticalAlignment="Center"/>
-                                    <TextBox Text="{Binding Reps, UpdateSourceTrigger=PropertyChanged}" 
-                                             Width="120" Margin="10,0,0,0" Padding="5" />
-                                    <TextBox Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}" 
-                                             Width="100" Margin="10,0,0,0" Padding="5" />
-                                    <Button Content="✕" Width="30" Margin="10,0,0,0" 
-                                            Background="#DC3545" Foreground="White"
-                                            Click="RemoveSet_Click" Tag="{Binding}"/>
-                                </StackPanel>
+                                <Border Background="#252A35" Padding="8" CornerRadius="4" 
+                                        Margin="0,0,0,6" BorderThickness="1" BorderBrush="#2C2C3E">
+                                    <StackPanel Orientation="Horizontal" Margin="0">
+                                        <TextBlock Text="{Binding SetNumber}" Width="30" 
+                                                   VerticalAlignment="Center" Foreground="#FFFFFF" FontWeight="Bold"/>
+                                        <TextBox Text="{Binding Reps, UpdateSourceTrigger=PropertyChanged}" 
+                                                 Width="60" Margin="10,0,0,0" Padding="8"
+                                                 Style="{StaticResource DialogTextBox}"/>
+                                        <TextBox Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}" 
+                                                 Width="70" Margin="10,0,0,0" Padding="8"
+                                                 Style="{StaticResource DialogTextBox}"/>
+                                        <Button Content="✕" Width="35" Margin="10,0,0,0" 
+                                                Background="#D32F2F" Foreground="White"
+                                                Click="RemoveSet_Click" Tag="{Binding}"
+                                                Style="{StaticResource DialogButton}"
+                                                Padding="6,4" FontSize="11"/>
+                                    </StackPanel>
+                                </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
 
                     <!-- Add Set Button -->
-                    <Button Content="+ Set hinzufügen" 
-                            Background="#28A745" Foreground="White" 
-                            Padding="8" 
+                    <Button Content="✚ Set hinzufügen" 
+                            Background="#1976D2" Foreground="White"
+                            Padding="10,8" 
                             Click="AddSet_Click" 
                             FontSize="11"
-                            Height="32"/>
+                            Height="36"
+                            Style="{StaticResource DialogButton}"/>
                 </StackPanel>
             </Border>
 
-            <!-- Info -->
-            <TextBlock Text="Gesamt-Volumen: " FontWeight="Bold" FontSize="11" Margin="0,0,0,3"/>
-            <TextBlock x:Name="VolumeInfo" Text="0 kg" FontSize="11" Foreground="#666" Margin="0,0,0,15"/>
+            <!-- Volume Info -->
+            <Border Background="#263238" Padding="15" CornerRadius="8" Margin="0,0,0,20">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="⚖️ Gesamt-Volumen:" FontWeight="Bold" 
+                               Foreground="#B0BEC5" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <TextBlock x:Name="VolumeInfo" Text="0 kg" FontSize="13" 
+                               Foreground="#00BFA5" FontWeight="Bold" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
 
-            <!-- Buttons -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
-                <Button Content="OK" 
-                        Background="#007ACC" Foreground="White" 
-                        Padding="15,10" Margin="0,0,10,0" 
-                        Click="OK_Click" MinWidth="80"
-                        IsDefault="True"/>
+            <!-- Bottom Buttons -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Content="Abbrechen" 
-                        Background="#6C757D" Foreground="White" 
+                        Background="#546E7A" Foreground="White"
                         Padding="15,10" 
-                        Click="Cancel_Click" MinWidth="80"
-                        IsCancel="True"/>
+                        Click="Cancel_Click" MinWidth="90"
+                        Style="{StaticResource DialogButton}"
+                        IsCancel="True"
+                        Margin="0,0,12,0"/>
+                <Button Content="✓ OK" 
+                        Style="{StaticResource SuccessButton}"
+                        Padding="15,10" 
+                        Click="OK_Click" MinWidth="90"
+                        IsDefault="True"/>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

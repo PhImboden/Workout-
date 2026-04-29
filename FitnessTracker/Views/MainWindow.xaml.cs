@@ -86,6 +86,7 @@ namespace FitnessTracker.Views
                 WorkoutDate.Text = "-";
                 WorkoutStatus.Text = "-";
                 TotalVolume.Text = "-";
+                ExerciseCount.Text = "-";
                 ExercisesList.ItemsSource = null;
                 EmptyMessage.Visibility = Visibility.Visible;
                 return;
@@ -96,6 +97,7 @@ namespace FitnessTracker.Views
             WorkoutDate.Text = _selectedWorkout.Date.ToString("dd.MM.yyyy HH:mm");
             WorkoutStatus.Text = _selectedWorkout.IsCompleted ? "✓ Erledigt" : "⊙ Offen";
             TotalVolume.Text = $"{_selectedWorkout.GetTotalVolume():F1} kg";
+            ExerciseCount.Text = _selectedWorkout.Exercises.Count.ToString();
 
             ExercisesList.ItemsSource = _selectedWorkout.Exercises;
 
