@@ -6,5 +6,6 @@
     <Application.Resources>
         <local:BoolToVisibilityConverter x:Key="BoolToVisConverter"/>
         <local:VolumeConverter x:Key="VolumeConverter"/>
+        <local:SetDetailsConverter x:Key="SetDetailsConverter"/>
     </Application.Resources>
 </Application>

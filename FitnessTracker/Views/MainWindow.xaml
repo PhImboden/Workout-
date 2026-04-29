@@ -109,23 +109,14 @@
                                         </StackPanel>
                                         <TextBlock Text="{Binding Sets.Count, StringFormat='Sätze: {0}'}" 
                                                    FontSize="10" Foreground="#999"/>
-                                        <TextBlock FontSize="10" Foreground="#666">
-                                            <TextBlock.Text>
-                                                <MultiBinding StringFormat="Volumen: {0:F1} kg">
-                                                    <Binding Path="." Converter="{StaticResource VolumeConverter}"/>
-                                                </MultiBinding>
-                                            </TextBlock.Text>
-                                        </TextBlock>
+                                        <TextBlock FontSize="10" Foreground="#666" Text="{Binding ., Converter={StaticResource VolumeConverter}, StringFormat='Volumen: {0:F1} kg'}"/>
                                         
                                         <!-- Sets Details -->
                                         <ItemsControl ItemsSource="{Binding Sets}" Margin="0,5,0,0">
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
-                                                    <TextBlock FontSize="9" Foreground="#999" Margin="0,2,0,0">
-                                                        <Run Text="Satz: "/>
-                                                        <Run Text="{Binding Reps, Mode=OneWay}"/> <Run Text="x "/>
-                                                        <Run Text="{Binding Weight, Mode=OneWay, StringFormat='{0:F1}'}" /> <Run Text="kg"/>
-                                                    </TextBlock>
+                                                    <TextBlock FontSize="9" Foreground="#999" Margin="0,2,0,0" 
+                                                               Text="{Binding ., Converter={StaticResource SetDetailsConverter}, Mode=OneWay}"/>
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
                                         </ItemsControl>

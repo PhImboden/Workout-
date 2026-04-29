@@ -17,8 +17,7 @@
             <TextBlock Text="oder eigene Übung:" FontWeight="Bold" FontSize="12" Margin="0,0,0,5"/>
             <TextBox x:Name="CustomExerciseText" 
                      Padding="8" 
-                     Margin="0,0,0,10"
-                     Placeholder="Übungsname (optional)"/>
+                     Margin="0,0,0,10"/>
 
             <!-- Muscle Group -->
             <TextBlock Text="Muskelgruppe:" FontWeight="Bold" FontSize="12" Margin="0,0,0,5"/>

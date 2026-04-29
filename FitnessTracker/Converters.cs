@@ -41,4 +41,22 @@ namespace FitnessTracker
             throw new NotImplementedException();
         }
     }
+
+    /// <summary>
+    /// Konvertiert Set zu Details-String (Reps x Weight kg)
+    /// </summary>
+    public class SetDetailsConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is Set set)
+                return $"Satz: {set.Reps}x {set.Weight:F1}kg";
+            return "";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

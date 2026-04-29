@@ -1,273 +1,160 @@
-# 📚 Fitness Tracker - Documentation Index
+# 📖 Fitness Tracker Dokumentation - Index
 
-## 🎯 Quick Navigation
+## 🚀 Quick Navigation
 
-### 🚀 **Ich will schnell starten**
-👉 [QUICK_START.md](QUICK_START.md) - 5 Minuten zum laufen
+| Dokument | Zweck | Zielgruppe |
+|----------|-------|-----------|
+| **[README.md](README.md)** | Überblick, Features, Installation | Alle |
+| **[QUICK_START.md](QUICK_START.md)** | Schnelleinstieg in 5 Minuten | Anfänger |
+| **[UBUNGEN_KATALOG.md](UBUNGEN_KATALOG.md)** | Neue Übungs-Features im Detail | Power User, Entwickler |
+| **[ANWENDUNGSBEISPIEL.md](ANWENDUNGSBEISPIEL.md)** | Schritt-für-Schritt Tutorials | Alle |
+| **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** | Was wurde neu implementiert | Entwickler |
+| **[SUMMARY.md](SUMMARY.md)** | Technische Zusammenfassung | Entwickler |
+| **[CHECKLIST.md](CHECKLIST.md)** | QA & Release-Checklist | QA Engineer |
+| **[KORREKTUR_PROTOKOLL.md](KORREKTUR_PROTOKOLL.md)** | Build-Fehler & Fixes | Debugging |
 
-### 📖 **Ich will alles wissen**
-👉 [README.md](README.md) - Vollständige Doku
+## 📚 Nach Interesse
 
-### 🔧 **Es gibt ein Problem**
-👉 [KORREKTUR_PROTOKOLL.md](KORREKTUR_PROTOKOLL.md) - Fehler & Lösungen
+### 👨‍💼 Ich bin ein Benutzer
+1. Beginne mit [QUICK_START.md](QUICK_START.md)
+2. Schau dir [ANWENDUNGSBEISPIEL.md](ANWENDUNGSBEISPIEL.md) an
+3. Nutze die App nach Bedarf
 
-### 📊 **Projekt-Übersicht**
-👉 [SUMMARY.md](SUMMARY.md) - Technische Details
+### 👨‍💻 Ich bin ein Entwickler
+1. Lese [README.md](README.md) für Features
+2. Verstehe die Struktur in [SUMMARY.md](SUMMARY.md)
+3. Neue Features in [UBUNGEN_KATALOG.md](UBUNGEN_KATALOG.md)
+4. Code ändern? Check [IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)
+5. Build-Fehler? Schau [KORREKTUR_PROTOKOLL.md](KORREKTUR_PROTOKOLL.md)
 
-### ✅ **Status & Qualität**
-👉 [CHECKLIST.md](CHECKLIST.md) - Qualitätsmetriken
+### 🧪 Ich bin QA / Tester
+1. [CHECKLIST.md](CHECKLIST.md) für Test-Pläne
+2. [ANWENDUNGSBEISPIEL.md](ANWENDUNGSBEISPIEL.md) für Szenarien
+3. [UBUNGEN_KATALOG.md](UBUNGEN_KATALOG.md) für Edge Cases
 
----
+## 🎯 Feature-Dokumentation
 
-## 📁 Dokument-Übersicht
+### Basis Features
+- Workout Management (Create, Read, Update, Delete)
+- Filter und Suche
+- JSON-Speicherung
+→ Siehe: **README.md**
 
-| Datei | Zweck | Zielgruppe | Länge |
-|-------|-------|-----------|-------|
-| [INDEX.md](INDEX.md) | Diese Datei | Alle | 2 min |
-| [QUICK_START.md](QUICK_START.md) | Installation & Bedienung | Anfänger | 5 min |
-| [README.md](README.md) | Vollständige Dokumentation | Alle | 10 min |
-| [SUMMARY.md](SUMMARY.md) | Technische Übersicht | Entwickler | 15 min |
-| [KORREKTUR_PROTOKOLL.md](KORREKTUR_PROTOKOLL.md) | Build-Fehler & Lösungen | Entwickler | 10 min |
-| [CHECKLIST.md](CHECKLIST.md) | Qualität & Signoff | PM/QA | 5 min |
+### Neue Features (Übungskatalog)
+- Vordefinierte 30+ Übungen
+- Schnelle Übungsauswahl
+- Multi-Set Input
+- Live-Volumenberechnung
+- Übungs-Bearbeitung
+→ Siehe: **UBUNGEN_KATALOG.md** und **IMPLEMENTATION_SUMMARY.md**
 
----
+## ❓ FAQ - Häufige Fragen
 
-## 🎬 Szenarien
+### Wo werden die Daten gespeichert?
+→ `%APPDATA%\FitnessTracker\workouts.json`  
+→ Weitere Info: [README.md - Datenspeicherung](README.md)
 
-### Szenario 1: "Ich bin ein Endbenutzer"
+### Wie füge ich eine Übung hinzu?
+→ Siehe: [ANWENDUNGSBEISPIEL.md - Schritt 2](ANWENDUNGSBEISPIEL.md)
+
+### Kann ich eigene Übungen erstellen?
+→ Ja! [UBUNGEN_KATALOG.md](UBUNGEN_KATALOG.md) erklärt wie
+
+### Was ist das Volumen?
+→ Volumen = Reps × Weight  
+→ Siehe: [ANWENDUNGSBEISPIEL.md - Volumen-Berechnung](ANWENDUNGSBEISPIEL.md)
+
+### Wo ist der Quellcode?
+→ `/FitnessTracker/` Verzeichnis  
+→ Struktur in: [SUMMARY.md](SUMMARY.md)
+
+### Welche neue Features wurden hinzugefügt?
+→ [IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)
+
+### Die App funktioniert nicht!
+→ Check: [KORREKTUR_PROTOKOLL.md](KORREKTUR_PROTOKOLL.md)
+
+## 🗺️ Dokumentations-Karte
+
 ```
-1. Lese: QUICK_START.md
-2. Starte: FitnessTracker.exe
-3. Erstelle: Erstes Workout
-4. Genieße! 💪
-```
-
-### Szenario 2: "Ich bin ein Entwickler"
-```
-1. Lese: README.md
-2. Verstehe: SUMMARY.md (Architektur)
-3. Debugge: KORREKTUR_PROTOKOLL.md (Falls nötig)
-4. Entwickle: Neue Features
-```
-
-### Szenario 3: "Ich bin ein DevOps-Engineer"
-```
-1. Überprüfe: CHECKLIST.md
-2. Baue: dotnet build FitnessTracker/FitnessTracker.csproj
-3. Deployé: FitnessTracker/bin/Release/net48/FitnessTracker.exe
-4. Monitore: Logs & Errors
-```
-
-### Szenario 4: "Es gibt ein Problem"
-```
-1. Suche: In KORREKTUR_PROTOKOLL.md nach dem Problem
-2. Folge: Der angegebenen Lösung
-3. Teste: Die Lösung
-4. Melde: Wenn Fehler bleibt
-```
-
----
-
-## 🔍 Suche nach Thema
-
-### Installation & Setup
-- Wo startet man? → [QUICK_START.md](QUICK_START.md)
-- System-Anforderungen? → [README.md](README.md) unter "Installation"
-- Kompilierung? → [README.md](README.md) unter "Kompilierung"
-
-### Bedienung
-- Wie erstellt man ein Workout? → [QUICK_START.md](QUICK_START.md) unter "Erste Schritte"
-- Wie sucht man? → [README.md](README.md) unter "Features"
-- Wie speichert man Daten? → [README.md](README.md) unter "Datenspeicherung"
-
-### Technologie
-- Architektur? → [SUMMARY.md](SUMMARY.md) unter "Architektur"
-- Welche Technologien? → [README.md](README.md) unter "Technologie-Stack"
-- Performance? → [SUMMARY.md](SUMMARY.md) unter "Performance"
-
-### Fehlerbehandlung
-- NuGet-Fehler? → [KORREKTUR_PROTOKOLL.md](KORREKTUR_PROTOKOLL.md) Build 1-2
-- Namespaces falsch? → [KORREKTUR_PROTOKOLL.md](KORREKTUR_PROTOKOLL.md) Build 5
-- App startet nicht? → [QUICK_START.md](QUICK_START.md) unter "Fehlerbehandlung"
-
-### Qualität
-- Status? → [CHECKLIST.md](CHECKLIST.md)
-- Metriken? → [SUMMARY.md](SUMMARY.md) unter "Code-Qualität"
-- Tests? → [CHECKLIST.md](CHECKLIST.md) unter "Tests"
-
----
-
-## 📚 Kapitel-Index
-
-### QUICK_START.md
-1. Installation (30 Sekunden)
-2. Erste Schritte (5 Szenarien)
-3. Wo sind meine Daten?
-4. Projekt kompilieren
-5. Fehlerbehandlung
-6. Dateistruktur
-7. Weitere Ressourcen
-8. Checkliste
-
-### README.md
-1. Features (implementiert)
-2. Installation & Start
-3. Projektstruktur
-4. Datenspeicherung
-5. Bedienung
-6. Technologie-Stack
-7. User Stories (24/24)
-8. Bekannte Probleme
-9. Geplante Features
-
-### SUMMARY.md
-1. Projekt-Status
-2. Implementierte Komponenten
-3. User Stories (Tabelle)
-4. Technische Details
-5. Performance-Metriken
-6. Behobene Fehler
-7. Dateistruktur
-8. Start-Optionen
-9. Features im Detail
-
-### KORREKTUR_PROTOKOLL.md
-1. Iterative Fehlerbehebung (7 Builds)
-2. Finale Optimierungen
-3. Build-Statistik
-4. Endergebnis
-
-### CHECKLIST.md
-1. Pre-Launch Checklist
-2. Deliverables
-3. Deployment Checklist
-4. Qualitätsmetriken
-5. Performance-Ziele
-6. Sicherheit
-7. Bekannte Probleme
-8. Learned Lessons
-9. Zukünftige Verbesserungen
-
----
-
-## 🎯 Häufige Fragen
-
-**F: Wo finde ich die ausführbare Datei?**
-A: `FitnessTracker/bin/Release/net48/FitnessTracker.exe`
-
-**F: Wie speichere ich meine Workouts?**
-A: Automatisch in `%APPDATA%\FitnessTracker\workouts.json`
-
-**F: Wie ändere ich die Programmiersprache?**
-A: Das ist mit .NET Framework leider nicht einfach. Die UI ist auf Deutsch, Code auf English.
-
-**F: Kann ich den Source Code ändern?**
-A: Ja! Siehe [QUICK_START.md](QUICK_START.md) unter "Projekt kompilieren"
-
-**F: Gibt es Unit Tests?**
-A: Aktuell nicht. Geplant für v2.0 (Siehe [README.md](README.md))
-
-**F: Läuft es auf Mac/Linux?**
-A: Nur mit Wine/Parallels. Ursprünglich für Windows konzipiert.
-
-**F: Wie many Workouts kann ich speichern?**
-A: Unbegrenzt (Speicherplatz-limitiert)
-
-**F: Ist meine Datei sicher?**
-A: Ja, sie ist lokal auf deinem Computer. Keine Cloud-Speicherung.
-
-**F: Kann ich mehrere Nutzer haben?**
-A: Aktuell nicht. Geplant für Zukünftige Versionen.
-
----
-
-## 🔗 Externe Links
-
-- [.NET Framework Dokumentation](https://docs.microsoft.com/en-us/dotnet/)
-- [WPF Tutorial](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/)
-- [Newtonsoft.Json Docs](https://www.newtonsoft.com/json)
-- [GitHub - Fitness Tracker Inspiration](https://github.com) (Liftoff)
-
----
-
-## 🎓 Lernressourcen
-
-### Anfänger
-1. Lese [QUICK_START.md](QUICK_START.md)
-2. Starte die App
-3. Erstelle dein erstes Workout
-4. Erkunde alle Features
-
-### Mittelstufe
-1. Lese [README.md](README.md)
-2. Schau den Code an (Models, Services)
-3. Verstehe die Architektur
-4. Modifiziere kleine Teile
-
-### Fortgeschrittene
-1. Lese [SUMMARY.md](SUMMARY.md)
-2. Studiere [KORREKTUR_PROTOKOLL.md](KORREKTUR_PROTOKOLL.md)
-3. Kompiliere den Code selbst
-4. Füge neue Features hinzu
-
----
-
-## 🆘 Support & Kontakt
-
-### Problem: App startet nicht
-**Lösung:** [QUICK_START.md - Fehlerbehandlung](QUICK_START.md)
-
-### Problem: Build schlägt fehl
-**Lösung:** [KORREKTUR_PROTOKOLL.md](KORREKTUR_PROTOKOLL.md)
-
-### Problem: Feature X funktioniert nicht
-**Lösung:** [README.md - Features](README.md)
-
-### Problem: Nicht aufgelistet
-**Lösung:** Suche in allen `.md` Dateien oder probiere:
-```bash
-cd Workout-
-dotnet clean
-dotnet build
+README.md (Zentrale Hub)
+│
+├─ [QUICK_START.md] → Schnelleinstieg
+│
+├─ [UBUNGEN_KATALOG.md] → Neue Übungs-Features
+│                         └─ ExerciseCatalog.cs
+│                         └─ ExerciseDialog
+│                         └─ SetViewModel
+│                         └─ SetDetailsConverter
+│
+├─ [ANWENDUNGSBEISPIEL.md] → Praktische Szenarien
+│                           └─ Schritt-für-Schritt Workflows
+│                           └─ Katalog-Übersicht
+│                           └─ Volumen-Erklärung
+│                           └─ Tipps & FAQ
+│
+├─ [IMPLEMENTATION_SUMMARY.md] → Was neu ist
+│                               └─ Komponenten übersicht
+│                               └─ Design-Highlights
+│                               └─ Testing Szenarien
+│
+├─ [SUMMARY.md] → Technische Details
+│               └─ Architektur
+│               └─ Projektstruktur
+│               └─ Alle Komponenten
+│
+├─ [CHECKLIST.md] → QA & Release
+│                  └─ Test-Pläne
+│                  └─ Deployment
+│
+└─ [KORREKTUR_PROTOKOLL.md] → Build-Fehler
+                             └─ History
+                             └─ Lösungen
 ```
 
+## 🔗 Externe Referenzen
+
+- **Newtonsoft.Json:** https://www.newtonsoft.com/json
+- **.NET Framework 4.8:** https://dotnet.microsoft.com/download/dotnet-framework/net48
+- **WPF (Windows Presentation Foundation):** https://docs.microsoft.com/en-us/dotnet/desktop/wpf/
+
+## 📈 Dokumentations-Status
+
+| Dokument | Status | Aktualisiert | Version |
+|----------|--------|-------------|---------|
+| README.md | ✅ Vollständig | 22.04.2026 | 2.0 |
+| QUICK_START.md | ✅ Vollständig | 22.04.2026 | 1.0 |
+| UBUNGEN_KATALOG.md | ✅ Neu | 29.04.2026 | 1.0 |
+| ANWENDUNGSBEISPIEL.md | ✅ Neu | 29.04.2026 | 1.0 |
+| IMPLEMENTATION_SUMMARY.md | ✅ Neu | 29.04.2026 | 1.0 |
+| SUMMARY.md | ✅ Vollständig | 22.04.2026 | 1.0 |
+| CHECKLIST.md | ✅ Vollständig | 22.04.2026 | 1.0 |
+| KORREKTUR_PROTOKOLL.md | ✅ Archiv | 22.04.2026 | 1.0 |
+
+## 🎓 Lernpfad
+
+### Level 1: Anfänger
+1. [QUICK_START.md](QUICK_START.md) - Installation & erste Schritte
+2. [ANWENDUNGSBEISPIEL.md](ANWENDUNGSBEISPIEL.md) - Praktische Übungen
+
+### Level 2: Fortgeschritten
+1. [README.md](README.md) - Features verstehen
+2. [UBUNGEN_KATALOG.md](UBUNGEN_KATALOG.md) - Neue Features tiefer
+
+### Level 3: Experte
+1. [IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md) - Was neu ist
+2. [SUMMARY.md](SUMMARY.md) - Technische Details
+3. [KORREKTUR_PROTOKOLL.md](KORREKTUR_PROTOKOLL.md) - Build History
+
+## 🚀 Nächste Schritte
+
+1. **Erste Verwendung?** → [QUICK_START.md](QUICK_START.md)
+2. **Fragen zu neuen Übungs-Features?** → [UBUNGEN_KATALOG.md](UBUNGEN_KATALOG.md)
+3. **Praktische Beispiele?** → [ANWENDUNGSBEISPIEL.md](ANWENDUNGSBEISPIEL.md)
+4. **Entwicklung beiträgen?** → [SUMMARY.md](SUMMARY.md)
+
 ---
 
-## 📊 Dokumentations-Statistik
-
-| Metrik | Wert |
-|--------|------|
-| Gesamt-Dokumentationen | 6 |
-| Gesamt Zeilen Doku | ~2000 |
-| Code-Dateien | 11 |
-| Gesamt Zeilen Code | ~500 |
-| Konfigurationsdateien | 3 |
-
----
-
-## 🎉 Nächste Schritte
-
-1. **Für Anfänger:** [QUICK_START.md](QUICK_START.md) lesen
-2. **Für Entwickler:** [SUMMARY.md](SUMMARY.md) studieren
-3. **Für DevOps:** [CHECKLIST.md](CHECKLIST.md) überprüfen
-4. **Alle:** Feedback & Bugs melden!
-
----
-
-## 🌟 Special Thanks
-
-Entwickelt von **GitHub Copilot**  
-Inspiriert von **Liftoff**  
-Für Fitness-Enthusiasten weltweit 💪
-
----
-
-**Letzte Aktualisierung:** 22.04.2026  
-**Status:** ✅ Production Ready  
-**Version:** 1.0.0
-
----
-
-*Viel Erfolg mit der Fitness Tracker Applikation!*
-
-[Nach oben ⬆️](#-fitness-tracker---documentation-index)
+**Letzte Aktualisierung:** 29.04.2026  
+**Status:** Production Ready (mit neuen Übungs-Features)  
+**Version:** 2.0

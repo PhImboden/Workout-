@@ -15,6 +15,11 @@ Eine benutzerfreundliche Desktop-Applikation zum Erstellen, Verwalten und Verfol
   - ✅ Übungen pro Workout verwalten
   - ✅ Sätze mit Wiederholungen & Gewicht
   - ✅ Volumen-Berechnung (Reps × Weight)
+  - ✅ **Vordefinierter Übungskatalog** (30+ Übungen nach Muskelgruppen)
+  - ✅ **Schnelle Übungsauswahl** aus Katalog oder benutzerdefiniert
+  - ✅ **Multi-Set Input** - Mehrere Sets mit individuellen Werten pro Übung
+  - ✅ **Live-Volumenberechnung** während der Eingabe
+  - ✅ **Übungsbearbeitung** - Edit/Delete Funktionalität
 
 - **Suche & Filter**
   - ✅ Suche nach Workout-Namen und Datum
@@ -110,6 +115,24 @@ Daten werden als **JSON** gespeichert:
 3. Datum setzen
 4. OK klicken
 
+### Übung hinzufügen (NEU!)
+1. Workout auswählen
+2. **"+ Übung hinzufügen"** Button klicken
+3. **Im Dialog:**
+   - **Übung wählen:** Aus dem Katalog (30+ Übungen) oder eigene eingeben
+   - **Muskelgruppe:** Automatisch gesetzt oder manuell anpassen
+   - **Sets hinzufügen:** 
+     - Pro Set: Wiederholungen und Gewicht eingeben
+     - "Set hinzufügen" für weitere Sets
+     - Volumen wird live berechnet
+4. OK klicken → **Übung ist im Workout und wird automatisch gespeichert**
+
+### Übung bearbeiten/löschen (NEU!)
+1. Workout auswählen
+2. Bei der gewünschten Übung:
+   - **"✎ Bearbeiten"** - Sets ändern
+   - **"✕ Löschen"** - Übung entfernen
+
 ### Workout bearbeiten
 1. Workout in der Liste auswählen
 2. **"✎ Bearbeiten"** klicken
@@ -119,7 +142,7 @@ Daten werden als **JSON** gespeichert:
 ### Workout löschen
 1. Workout auswählen
 2. **"🗑 Löschen"** klicken
-3. Bestäigung akzeptieren
+3. Bestäung akzeptieren
 
 ### Workout als erledigt
 1. Workout auswählen
@@ -155,48 +178,57 @@ Daten werden als **JSON** gespeichert:
 - [x] Vergangene Workouts ansehen
 - [x] Erledigte Workouts erkennen
 - [x] Suche nach Workouts
-- [x] Filter (erledigt/offen)
-- [x] Volumen nach Workout anzeigen
-- [x] Nach Workout anzeigen wo (Muskelgruppe) gemacht
+- [x] **Vordefinierte Übungskatalog** (NEU!)
+- [x] **Übungsauswahl aus Katalog** (NEU!)
+- [x] **Multi-Set Input** (NEU!)
+- [x] **Live-Volumenberechnung** (NEU!)
 
-### Niedrig-Priorität ⏳
-- [ ] Meldung bei keinen Daten
-- [ ] Doppelte Workouts vermeiden (erweitert)
+## 📚 Dokumentation
 
-## 🐛 Bekannte Probleme & Lösungen
+- **[QUICK_START.md](QUICK_START.md)** - Schnelleinstieg
+- **[UBUNGEN_KATALOG.md](UBUNGEN_KATALOG.md)** - Detailliert: Übungskatalog & Set-Management
+- **[ANWENDUNGSBEISPIEL.md](ANWENDUNGSBEISPIEL.md)** - Schritt-für-Schritt Beispiele
+- **[SUMMARY.md](SUMMARY.md)** - Technische Zusammenfassung
+- **[CHECKLIST.md](CHECKLIST.md)** - QA & Release-Checklist
+- **[INDEX.md](INDEX.md)** - Dokumentations-Index
 
-| Problem | Lösung |
-|---------|--------|
-| NuGet-Pakete nicht geladen | `dotnet restore` ausführen |
-| "Objektverweis null" Error | Nur während Initialisierung, automatisch behoben |
-| JSON-Datei nicht gefunden | App erstellt Verzeichnis automatisch |
+## 📝 Beispiel-Workout
 
-## 🔮 Geplante Features
+```
+Brusttraining Montag (22.04.2026)
+Status: Offen
+Gesamtvolumen: 3785 kg
 
-- [ ] Datenbank-Integration (SQLite)
-- [ ] Trainingsplan-Generator
-- [ ] Fortschritts-Statistiken & Charts
-- [ ] Dark Mode
-- [ ] Export zu CSV/PDF
-- [ ] Mehrsprachige UI (DE/EN/FR)
-- [ ] Cloud-Synchronisation
+├─ Bankdrücken (Brust)
+│  ├─ Satz 1: 10 × 60 kg = 600 kg
+│  ├─ Satz 2: 8 × 65 kg = 520 kg
+│  ├─ Satz 3: 6 × 70 kg = 420 kg
+│  └─ Volumen: 1540 kg
+│
+├─ Schrägbankdrücken (Brust)
+│  ├─ Satz 1: 12 × 50 kg = 600 kg
+│  ├─ Satz 2: 10 × 55 kg = 550 kg
+│  └─ Volumen: 1150 kg
+│
+├─ Hantelflüge (Brust)
+│  ├─ Satz 1: 12 × 30 kg = 360 kg
+│  ├─ Satz 2: 12 × 30 kg = 360 kg
+│  └─ Volumen: 720 kg
+│
+└─ Kabelflüge (Brust)
+   ├─ Satz 1: 15 × 25 kg = 375 kg
+   └─ Volumen: 375 kg
+```
 
-## 📝 Lizenz
+## 🎓 Übungskatalog-Kategorien
 
-Dieses Projekt ist inspiriert von "Liftoff" und für Trainings-/Demo-Zwecke gedacht.
+**30+ vordefinierte Übungen nach Muskelgruppen:**
+- 💪 **Brust:** Bankdrücken, Schrägbankdrücken, Hantelflüge, Kabelflüge, ...
+- 🔙 **Rücken:** Kreuzheben, Latzug, Rudermaschine, ...
+- 🤸 **Schultern:** Schulterpresse, Seitenheben, ...
+- 💪 **Bizeps:** Langhantelcurls, Kurzhantelcurls, ...
+- 🤛 **Trizeps:** Trizepsdips, Trizepsdrücken, ...
+- 🦵 **Beine:** Kniebeuge, Beinpresse, Beinstrecker, ...
+- 🏋️ **Bauch:** Crunches, Planks, Situps, ...
 
-## 👨‍💻 Entwicklung
-
-Die Applikation wurde iterativ entwickelt und getestet:
-1. ✅ Build 1: Erste Kompilierung
-2. ✅ Build 2: NuGet-Pakete behoben
-3. ✅ Build 3: Converter implementiert
-4. ✅ Build 4: Binding-Fehler behoben
-5. ✅ Build 5: Namespace korrekt gesetzt
-6. ✅ Build 6: Schneller optimiert
-7. ✅ Build 7: Runtime-Fehler behoben
-8. ✅ **FINAL: Applikation läuft!** 🎉
-
----
-
-**Status:** ✅ Production Ready | **Last Updated:** 22.04.2026
+**Oder:** Erstelle deine eigenen Übungen mit benutzerdefinierten Namen!
