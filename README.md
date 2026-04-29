@@ -1,0 +1,202 @@
+# 💪 Fitness Tracker - WPF Applikation
+
+Eine benutzerfreundliche Desktop-Applikation zum Erstellen, Verwalten und Verfolgen von Workouts mit lokaler JSON-Speicherung.
+
+## 🎯 Features
+
+### Implementiert ✅
+- **Workout-Management**
+  - ✅ Workout erstellen mit Name und Datum
+  - ✅ Workout bearbeiten
+  - ✅ Workout löschen
+  - ✅ Workout als erledigt markieren
+
+- **Übungen & Sätze**
+  - ✅ Übungen pro Workout verwalten
+  - ✅ Sätze mit Wiederholungen & Gewicht
+  - ✅ Volumen-Berechnung (Reps × Weight)
+
+- **Suche & Filter**
+  - ✅ Suche nach Workout-Namen und Datum
+  - ✅ Filter: Alle / Offen / Erledigt
+  - ✅ Live-Suchfilterung
+
+- **Datenverwaltung**
+  - ✅ Automatisches Speichern in JSON
+  - ✅ Daten beim App-Start laden
+  - ✅ AppData-Verzeichnis-Speicherung
+
+- **Benutzeroberfläche**
+  - ✅ Modernes 2-spalten Layout
+  - ✅ Workout-Details-Ansicht
+  - ✅ Farbcodierung (erledigt = Häkchen)
+  - ✅ Responsive Design
+
+## 🚀 Installation & Start
+
+### Voraussetzungen
+- .NET Framework 4.8+
+- Windows 7+
+
+### Kompilierung
+```bash
+cd FitnessTracker
+dotnet build
+```
+
+### Ausführung
+```bash
+dotnet run --project FitnessTracker
+# oder direkt die EXE starten:
+FitnessTracker/bin/Debug/net48/FitnessTracker.exe
+```
+
+## 📁 Projektstruktur
+
+```
+FitnessTracker/
+├── Models/
+│   ├── Workout.cs          # Workout-Modell mit Übungen
+│   ├── Exercise.cs         # Übungs-Modell mit Sets
+│   └── Set.cs              # Satz-Modell (Reps + Weight)
+├── Services/
+│   ├── DataService.cs      # JSON I/O & Serialisierung
+│   └── WorkoutService.cs   # Business Logic
+├── Views/
+│   ├── MainWindow.xaml     # Hauptfenster UI
+│   ├── MainWindow.xaml.cs  # Code-Behind
+│   ├── WorkoutDialog.xaml  # Dialog für neues Workout
+│   └── WorkoutDialog.xaml.cs
+├── Converters.cs           # Value Converters (UI)
+├── App.xaml                # Application Root
+├── App.xaml.cs             # Startup-Logik
+└── FitnessTracker.csproj  # Projektdatei
+```
+
+## 💾 Datenspeicherung
+
+Daten werden als **JSON** gespeichert:
+- **Location:** `%APPDATA%\FitnessTracker\workouts.json`
+- **Format:** Pretty-geprinted JSON für einfache Bearbeitung
+- **Automatisches Speichern** nach jeder Änderung
+
+### Beispiel-JSON:
+```json
+[
+  {
+    "Id": "abc123...",
+    "Name": "Brusttraining",
+    "Date": "2026-04-22T10:00:00",
+    "IsCompleted": false,
+    "Exercises": [
+      {
+        "Name": "Bankdrücken",
+        "Muscle": "Brust",
+        "Sets": [
+          {"Reps": 10, "Weight": 100},
+          {"Reps": 8, "Weight": 110}
+        ]
+      }
+    ]
+  }
+]
+```
+
+## 🎮 Bedienung
+
+### Neues Workout
+1. Klick auf **"+ Neues Workout"** Button
+2. Name eingeben
+3. Datum setzen
+4. OK klicken
+
+### Workout bearbeiten
+1. Workout in der Liste auswählen
+2. **"✎ Bearbeiten"** klicken
+3. Name/Datum ändern
+4. Speichern
+
+### Workout löschen
+1. Workout auswählen
+2. **"🗑 Löschen"** klicken
+3. Bestäigung akzeptieren
+
+### Workout als erledigt
+1. Workout auswählen
+2. **"✓ Erledigt"** klicken
+3. Status ändert sich automatisch
+
+## 🔧 Technologie-Stack
+
+- **Framework:** .NET Framework 4.8
+- **UI:** WPF (Windows Presentation Foundation)
+- **Serialisierung:** Newtonsoft.Json (13.0.3)
+- **Speicher:** JSON-Dateien (lokal)
+
+## 📊 Unterstützte User Stories
+
+### Hoch-Priorität ✅
+- [x] Workout erstellen
+- [x] Workout löschen
+- [x] Workout bearbeiten
+- [x] Alle Workouts anzeigen
+- [x] Daten beim Start laden
+- [x] Daten automatisch speichern
+- [x] Sätze erfassen
+- [x] Wiederholungen erfassen
+- [x] Gewicht eingeben
+- [x] Datum setzen
+- [x] Workout als erledigt markieren
+- [x] Fehlermeldungen anzeigen
+- [x] Einfache Benutzeroberfläche
+- [x] Buttons für Aktionen
+
+### Mittel-Priorität ✅
+- [x] Vergangene Workouts ansehen
+- [x] Erledigte Workouts erkennen
+- [x] Suche nach Workouts
+- [x] Filter (erledigt/offen)
+- [x] Volumen nach Workout anzeigen
+- [x] Nach Workout anzeigen wo (Muskelgruppe) gemacht
+
+### Niedrig-Priorität ⏳
+- [ ] Meldung bei keinen Daten
+- [ ] Doppelte Workouts vermeiden (erweitert)
+
+## 🐛 Bekannte Probleme & Lösungen
+
+| Problem | Lösung |
+|---------|--------|
+| NuGet-Pakete nicht geladen | `dotnet restore` ausführen |
+| "Objektverweis null" Error | Nur während Initialisierung, automatisch behoben |
+| JSON-Datei nicht gefunden | App erstellt Verzeichnis automatisch |
+
+## 🔮 Geplante Features
+
+- [ ] Datenbank-Integration (SQLite)
+- [ ] Trainingsplan-Generator
+- [ ] Fortschritts-Statistiken & Charts
+- [ ] Dark Mode
+- [ ] Export zu CSV/PDF
+- [ ] Mehrsprachige UI (DE/EN/FR)
+- [ ] Cloud-Synchronisation
+
+## 📝 Lizenz
+
+Dieses Projekt ist inspiriert von "Liftoff" und für Trainings-/Demo-Zwecke gedacht.
+
+## 👨‍💻 Entwicklung
+
+Die Applikation wurde iterativ entwickelt und getestet:
+1. ✅ Build 1: Erste Kompilierung
+2. ✅ Build 2: NuGet-Pakete behoben
+3. ✅ Build 3: Converter implementiert
+4. ✅ Build 4: Binding-Fehler behoben
+5. ✅ Build 5: Namespace korrekt gesetzt
+6. ✅ Build 6: Schneller optimiert
+7. ✅ Build 7: Runtime-Fehler behoben
+8. ✅ **FINAL: Applikation läuft!** 🎉
+
+---
+
+**Status:** ✅ Production Ready | **Last Updated:** 22.04.2026
