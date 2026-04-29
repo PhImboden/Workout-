@@ -116,11 +116,43 @@
                                                 </MultiBinding>
                                             </TextBlock.Text>
                                         </TextBlock>
+                                        
+                                        <!-- Sets Details -->
+                                        <ItemsControl ItemsSource="{Binding Sets}" Margin="0,5,0,0">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock FontSize="9" Foreground="#999" Margin="0,2,0,0">
+                                                        <Run Text="Satz: "/>
+                                                        <Run Text="{Binding Reps, Mode=OneWay}"/> <Run Text="x "/>
+                                                        <Run Text="{Binding Weight, Mode=OneWay, StringFormat='{0:F1}'}" /> <Run Text="kg"/>
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        
+                                        <!-- Exercise Action Buttons -->
+                                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                            <Button Content="✎ Bearbeiten" 
+                                                    Background="#007ACC" Foreground="White" 
+                                                    Padding="5,3" Margin="0,0,5,0" FontSize="10"
+                                                    Click="EditExercise_Click" MinWidth="70"/>
+                                            <Button Content="✕ Löschen" 
+                                                    Background="#DC3545" Foreground="White" 
+                                                    Padding="5,3" FontSize="10"
+                                                    Click="DeleteExercise_Click" MinWidth="70"/>
+                                        </StackPanel>
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
+
+                    <!-- Add Exercise Button -->
+                    <Button Content="+ Übung hinzufügen" 
+                            Background="#28A745" Foreground="White" 
+                            Padding="10" Margin="0,0,0,10" 
+                            Click="AddExercise_Click" 
+                            FontWeight="Bold" Height="40"/>
 
                     <!-- Action Buttons -->
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10">

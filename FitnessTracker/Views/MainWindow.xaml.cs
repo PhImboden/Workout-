@@ -183,5 +183,92 @@ namespace FitnessTracker.Views
             RefreshWorkoutsList();
             DisplayWorkoutDetails();
         }
+
+        private void AddExercise_Click(object sender, RoutedEventArgs e)
+        {
+            if (_selectedWorkout == null)
+            {
+                MessageBox.Show("Bitte wähle ein Workout aus", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            var dialog = new ExerciseDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                try
+                {
+                    var exercise = new Exercise(dialog.SelectedExerciseName, dialog.MuscleGroup);
+                    foreach (var set in dialog.ResultSets)
+                    {
+                        exercise.Sets.Add(set);
+                    }
+                    
+                    _selectedWorkout.Exercises.Add(exercise);
+                    _workoutService.UpdateWorkout(_selectedWorkout);
+                    DisplayWorkoutDetails();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Fehler beim Hinzufügen der Übung: {ex.Message}", 
+                        "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void EditExercise_Click(object sender, RoutedEventArgs e)
+        {
+            var exercise = (sender as FrameworkElement)?.DataContext as Exercise;
+            if (exercise == null)
+            {
+                MessageBox.Show("Bitte wähle eine Übung aus", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            var dialog = new ExerciseDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                try
+                {
+                    exercise.Name = dialog.SelectedExerciseName;
+                    exercise.Muscle = dialog.MuscleGroup;
+                    exercise.Sets.Clear();
+                    foreach (var set in dialog.ResultSets)
+                    {
+                        exercise.Sets.Add(set);
+                    }
+                    
+                    _workoutService.UpdateWorkout(_selectedWorkout);
+                    DisplayWorkoutDetails();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Fehler beim Bearbeiten der Übung: {ex.Message}", 
+                        "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void DeleteExercise_Click(object sender, RoutedEventArgs e)
+        {
+            var exercise = (sender as FrameworkElement)?.DataContext as Exercise;
+            if (exercise == null)
+            {
+                MessageBox.Show("Bitte wähle eine Übung aus", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            MessageBoxResult result = MessageBox.Show(
+                $"Möchtest du die Übung '{exercise.Name}' wirklich löschen?",
+                "Bestätigung",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                _selectedWorkout.Exercises.Remove(exercise);
+                _workoutService.UpdateWorkout(_selectedWorkout);
+                DisplayWorkoutDetails();
+            }
+        }
     }
 }
