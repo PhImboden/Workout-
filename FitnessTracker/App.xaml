@@ -1,0 +1,10 @@
+<Application x:Class="FitnessTracker.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:FitnessTracker"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisConverter"/>
+        <local:VolumeConverter x:Key="VolumeConverter"/>
+    </Application.Resources>
+</Application>
