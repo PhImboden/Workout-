@@ -1,7 +1,7 @@
 <Window x:Class="FitnessTracker.Views.ExerciseDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Übung hinzufügen" Height="700" Width="550"
+        Title="Übung hinzufügen" Height="871" Width="550"
         WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
         Background="#0F1419"
         Foreground="#FFFFFF">
@@ -9,7 +9,7 @@
     <Window.Resources>
         <Style x:Key="DialogButton" TargetType="Button">
             <Setter Property="Background" Value="#1976D2"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="white"/>
             <Setter Property="Padding" Value="15,10"/>
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -97,8 +97,9 @@
                     <ComboBox x:Name="ExerciseCombo" 
                               Style="{StaticResource DialogComboBox}"
                               Margin="0,0,0,15"
+                              Foreground="Black"
                               DisplayMemberPath="Name"
-                              Padding="12"/>
+                              Padding="12" SelectionChanged="ExerciseCombo_SelectionChanged"/>
 
                     <TextBlock Text="oder eingeben:" FontSize="11" FontWeight="SemiBold" 
                                Foreground="#B0BEC5" Margin="0,0,0,8"/>
@@ -118,7 +119,8 @@
                     
                     <ComboBox x:Name="MuscleCombo" 
                               Style="{StaticResource DialogComboBox}"
-                              Padding="12"/>
+                              Padding="12"
+                              Foreground="Black"/>
                 </StackPanel>
             </Border>
 

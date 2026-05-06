@@ -132,6 +132,11 @@ namespace FitnessTracker.Views
             DialogResult = false;
             Close();
         }
+
+        private void ExerciseCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
     /// <summary>
