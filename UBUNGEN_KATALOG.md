@@ -53,7 +53,7 @@ Ein Modal-Dialog, der:
 - Vollständige Validierung (keine leeren Sets, keine ungültigen Werte)
 
 ### 3. SetViewModel.cs
-**Pfad:** `FitnessTracker/Views/ExerciseDialog.xaml.cs`
+**Pfad:** `FitnessTracker/Views/SetViewModel.cs` (innerhalb von ExerciseDialog.xaml.cs)
 
 Ein einfaches ViewModel zur Unterstützung der UI-Bindung von Set-Daten:
 - `SetNumber` - Satz-Nummer (1, 2, 3, etc.)
